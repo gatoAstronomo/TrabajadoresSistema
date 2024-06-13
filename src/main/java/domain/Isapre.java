@@ -1,0 +1,11 @@
+package domain;
+
+public enum Isapre {
+	BANMEDICA,
+	COLMENA,
+	CONSALUD,
+	CRUZ_BLANCA,
+	MASVIDA,
+	NUEVA_MASVIDA,
+	VIDA_TRES
+}
