@@ -14,18 +14,17 @@ import domain.Worker;
 
 public class DataBase implements FileManager<Worker> {
 
-	private List<Worker> workers;
 	private final Gson gson = new Gson();
 
     public DataBase() throws IOException {
-		workers = read("workers.json");
 	}
 
 	@Override
-	public void write(String filename, Worker data) throws IOException {
-		File file = new File(filename);
+	public void write(String fileName, Worker data) throws IOException {
+		List<Worker> workers = new ArrayList<>();
+		File file = new File(fileName);
 		if (file.exists()) {
-			workers = read(filename);
+			workers = read(fileName);
 		} else {
 			file.createNewFile();
 		}
@@ -36,8 +35,8 @@ public class DataBase implements FileManager<Worker> {
 	}
 
 	@Override
-	public ArrayList<Worker> read(String filename) throws IOException {
-		File file = new File(filename);
+	public ArrayList<Worker> read(String fileName) throws IOException {
+		File file = new File(fileName);
 		if (!file.exists()) {
 			return new ArrayList<>();
 		}
@@ -53,17 +52,13 @@ public class DataBase implements FileManager<Worker> {
 	}
 
 	@Override
-	public void createFolder(String foldername) throws IOException {
-		File folder = new File(foldername);
+	public void createFolder(String folderName) throws IOException {
+		File folder = new File(folderName);
 		if (folder.exists()) {
 			throw new IOException("Folder already exists");
 		}
 		if (!folder.mkdir()) {
 			throw new IOException("Failed to create folder");
 		}
-	}
-
-	public List<Worker> getWorkers() {
-		return workers;
 	}
 }

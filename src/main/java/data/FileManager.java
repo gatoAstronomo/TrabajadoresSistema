@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 public interface FileManager<T> {
 
-	public void write(String filename, T data) throws IOException;
+	public void write(String fileName, T data) throws IOException;
 
-	public ArrayList<T> read(String filename) throws  IOException;
+	public ArrayList<T> read(String fileName) throws  IOException;
 
-	public void createFolder(String foldername) throws IOException;
+	public void createFolder(String folderName) throws IOException;
+
 }

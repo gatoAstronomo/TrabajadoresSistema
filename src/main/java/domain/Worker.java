@@ -31,6 +31,6 @@ public class Worker extends Person {
 
 	@Override
 	public String toString() {
-		return "Worker [afp: " + afp + ", isapre: " + isapre + ", name: " + super.name + ", rut: " + super.rut + ", surname: " + super.surname + "]";
+		return "{afp: " + afp + ", isapre: " + isapre + ", name: " + super.name + ", rut: " + super.rut + ", surname: " + super.surname + "}";
 	}
 }
